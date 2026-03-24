@@ -1,124 +1,500 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
-  <title>BizzOn Information 2025</title> 
+    <title>BizzOn Information 2025</title> 
     <meta charset="UTF-8">
-	  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-
-  <meta name="description" content="BIZZON ONLINE SOLUTION COMPANY LIMITED">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta property="og:title" content="BizzOn Information 2024" />
-<meta property="og:image" content="https://info.bizzon.vn/og-image.png" />
-<meta property="og:description" content="BIZZON ONLINE SOLUTION COMPANY LIMITED" />  
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="description" content="BIZZON ONLINE SOLUTION COMPANY LIMITED">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="BizzOn Information 2025" />
+    <meta property="og:image" content="https://info.bizzon.vn/og-image.png" />
+    <meta property="og:description" content="BIZZON ONLINE SOLUTION COMPANY LIMITED" />  
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-      .copy-container {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .copy-text {
-        color: #666;
-        text-decoration: none;
-        font-size: 14px;
-        margin-left: 4px;
-      }
-      .copy-text:hover {
-        color: #000;
-        text-decoration: underline;
-      }
-      .reveal-text {
-        color: #666;
-        text-decoration: none;
-        font-size: 14px;
-        margin-left: 4px;
-        cursor: pointer;
-      }
-      .reveal-text:hover {
-        color: #000;
-        text-decoration: underline;
-      }
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --success: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 20px 16px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-top: 20px;
+        }
+
+        .header img {
+            height: 60px;
+            width: auto;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+        }
+
+        .header h1 {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.025);
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 2px solid var(--bg);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-title svg {
+            color: var(--primary);
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        @media (min-width: 640px) {
+            .info-item {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            min-width: 180px;
+            margin-bottom: 6px;
+            flex-shrink: 0;
+        }
+
+        .info-value {
+            flex: 1;
+            font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            word-break: break-word;
+        }
+
+        .copy-btn {
+            background-color: var(--bg);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+            padding: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .copy-btn.copied {
+            background-color: var(--success);
+            color: #fff;
+            border-color: var(--success);
+        }
+
+        .reveal-btn {
+            background-color: #fff;
+            border: 1px dashed var(--primary);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+
+        .reveal-btn:hover {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+            text-decoration: underline;
+        }
+
+        .doc-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 8px;
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border: 1.5px solid var(--border);
+            color: var(--text-main);
+            border-radius: 12px;
+            font-weight: 600;
+            background-color: #fff;
+            transition: all 0.2s;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            text-decoration: none;
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+        }
+        
+        .btn-outline:hover svg {
+            color: #fff;
+        }
+
+        .industry-list {
+            list-style-type: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .industry-list {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+        }
+
+        .industry-item {
+            position: relative;
+            padding: 16px 16px 16px 44px;
+            background-color: var(--bg);
+            border-radius: 12px;
+            color: var(--text-main);
+            font-weight: 500;
+            line-height: 1.5;
+            border: 1px solid var(--border);
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+
+        .industry-item:hover {
+            border-color: var(--primary);
+            background-color: #fff;
+        }
+
+        .industry-item svg {
+            position: absolute;
+            left: 14px;
+            top: 16px;
+            color: var(--primary);
+        }
+
+        .industry-item strong {
+            display: block;
+            color: var(--primary);
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
+    <!-- Lucide icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
-<p style="text-align:justify"><span style="font-family:Tahoma,Geneva,sans-serif"><span style="font-size:16px"><strong>Th&ocirc;ng tin BizzOn (cập nhật ngày 15/09/2025)</strong></span></span></p>
+<div class="container">
+    <div class="header fade-in">
+        <img alt="BizzOn Logo" src="https://info.bizzon.vn/Bizzon_logo_13Nov.png" />
+        <h1>Thông tin BizzOn (cập nhật ngày 15/09/2025)</h1>
+    </div>
 
-<p style="text-align:justify"><span style="font-family:Tahoma,Geneva,sans-serif"><span style="font-size:16px"><strong>
-<img alt="BizzOn Logo" src="https://info.bizzon.vn/Bizzon_logo_13Nov.png" style="height:54px; width:150px" /></strong></span></span></p>
+    <!-- 1. THÔNG TIN LÀM HỢP ĐỒNG & HÓA ĐƠN -->
+    <div class="card fade-in" style="animation-delay: 0.1s;">
+        <div class="card-title">
+            <i data-lucide="file-text"></i> THÔNG TIN LÀM HỢP ĐỒNG & HÓA ĐƠN
+        </div>
+        <ul class="info-list">
+            <li class="info-item">
+                <div class="info-label">Tên công ty</div>
+                <div class="info-value">
+                    <span>CÔNG TY TNHH GIẢI PHÁP TRỰC TUYẾN BIZZON</span>
+                    <button class="copy-btn" onclick="copyToClipboardText('CÔNG TY TNHH GIẢI PHÁP TRỰC TUYẾN BIZZON', this)">
+                        <i data-lucide="copy" style="width: 16px; height: 16px;"></i>
+                    </button>
+                </div>
+            </li>
+            <li class="info-item">
+                <div class="info-label">Mã số thuế</div>
+                <div class="info-value">
+                    <span>0315 325 403</span>
+                    <button class="copy-btn" onclick="copyToClipboardText('0315325403', this)">
+                        <i data-lucide="copy" style="width: 16px; height: 16px;"></i>
+                    </button>
+                </div>
+            </li>
+            <li class="info-item">
+                <div class="info-label">Địa chỉ</div>
+                <div class="info-value">
+                    <span>Tầng 5, Tòa Nhà Song Do, 62A Phạm Ngọc Thạch, Phường Xuân Hòa, TP Hồ Chí Minh</span>
+                    <button class="copy-btn" onclick="copyToClipboardText('Tầng 5, Tòa Nhà Song Do, 62A Phạm Ngọc Thạch, Phường Xuân Hòa, TP Hồ Chí Minh', this)">
+                        <i data-lucide="copy" style="width: 16px; height: 16px;"></i>
+                    </button>
+                </div>
+            </li>
+            <li class="info-item">
+                <div class="info-label">Email</div>
+                <div class="info-value">
+                    <span>info@bizzon.vn</span>
+                    <button class="copy-btn" onclick="copyToClipboardText('info@bizzon.vn', this)">
+                        <i data-lucide="copy" style="width: 16px; height: 16px;"></i>
+                    </button>
+                </div>
+            </li>
+            <li class="info-item">
+                <div class="info-label">Website</div>
+                <div class="info-value">
+                    <a href="https://www.bizzon.vn" target="_blank">www.bizzon.vn</a>
+                </div>
+            </li>
+            <li class="info-item">
+                <div class="info-label">Người đại diện</div>
+                <div class="info-value">
+                    Ông Trương Quốc Hùng &nbsp;|&nbsp; Chức vụ: Giám đốc
+                </div>
+            </li>
+            <li class="info-item">
+                <div class="info-label">Tra cứu hóa đơn</div>
+                <div class="info-value">
+                    <a href="https://tracuu.bizzon.vn/" target="_blank">tracuu.bizzon.vn</a>
+                </div>
+            </li>
+            <li class="info-item">
+                <div class="info-label">Tel</div>
+                <div class="info-value">
+                    <span>0986 *** 660</span>
+                    <button class="reveal-btn" onclick="revealPhoneNumber(this, '0986 590 660', 'Trương Quốc Hùng')">Bấm để hiện số</button>
+                </div>
+            </li>
+        </ul>
+    </div>
 
-<p><span style="font-family:Tahoma,Geneva,sans-serif"><strong>1/ THÔNG TIN LÀM HỢP ĐỒNG & HÓA ĐƠN
-
-</strong></span></p>
-
-<ul>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Tên công ty: <span class="copy-container">CÔNG TY TNHH GIẢI PHÁP TRỰC TUYẾN BIZZON<a href="#" class="copy-text" onclick="copyToClipboardText('CÔNG TY TNHH GIẢI PHÁP TRỰC TUYẾN BIZZON', event)">copy</a></span></span></li>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Mã số thuế: <span class="copy-container">0315 325 403<a href="#" class="copy-text" onclick="copyToClipboardText('0315325403', event)">copy</a></span></span></li>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Địa chỉ: <span class="copy-container">Tầng 5, Tòa Nhà Song Do, 62A Phạm Ngọc Thạch, Phường Xuân Hòa, TP Hồ Chí Minh<a href="#" class="copy-text" onclick="copyToClipboardText('Tầng 5, Tòa Nhà Song Do, 62A Phạm Ngọc Thạch, Phường Xuân Hòa, TP Hồ Chí Minh', event)">copy</a></span></span></li>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Email: <span class="copy-container">info@bizzon.vn<a href="#" class="copy-text" onclick="copyToClipboardText('info@bizzon.vn', event)">copy</a></span></span></li>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Website: <a href="https://www.bizzon.vn" target="_blank">www.bizzon.vn</a></span></li>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Người đại diện: &Ocirc;ng Trương Quốc H&ugrave;ng | Chức vụ: Gi&aacute;m đốc</span></li>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Tra cứu hóa đơn: <a href="https://tracuu.bizzon.vn/" target="_blank">tracuu.bizzon.vn</a></span></li>
-</ul>
-
-<p><span style="font-family:Tahoma,Geneva,sans-serif"><strong>2/ THÔNG TIN LIÊN HỆ</strong></span></p>
-
-<ul>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Địa chỉ: Tầng 5, T&ograve;a Nh&agrave; Song Do, 62A Phạm Ngọc Thạch, Phường V&otilde; Thị S&aacute;u, Quận 3, TP Hồ Ch&iacute; Minh</span></li>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Email: <span class="copy-container">info@bizzon.vn<a href="#" class="copy-text" onclick="copyToClipboardText('info@bizzon.vn', event)">copy</a></span></span></li>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Tel: <span class="copy-container">0986 *** 660<a href="#" class="reveal-text" onclick="revealPhoneNumber(this, event)">Bấm để hiện số</a></span></span></li>
-</ul>
-
-<p><span style="font-family:Tahoma,Geneva,sans-serif"><strong>3/ HỒ SƠ NĂNG LỰC | BIZZON CREDENTIALS<br />
-<a href="https://drive.google.com/file/d/1aA6AexfQNIK86FC-A8MUWvzs4gOJb_tc/view?usp=sharing" target="_blank">Tải file</a> | <a href="https://docs.google.com/presentation/d/e/2PACX-1vT_-f98c0ccuJovkKZyRdN7AGFjxceVpZZ9EURdOhQprOenv0ZO6zQC-MI0ZA_Kxg/pub?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.p1" target="_blank">Xem online</a></strong></span></p>
-
-<p><span style="font-family:Tahoma,Geneva,sans-serif"><strong>4/ NG&Agrave;NH NGHỀ KINH DOANH</strong></span></p>
-
-<ul style="font-family:Tahoma,Geneva,sans-serif">
 
 
-	<li>J6201. Lập trình máy vi tính (ngành chính)</li>
-	<li>J5820. Xuất bản phần mềm</li>
-	<li>J6209. Hoạt động dịch vụ công nghệ thông tin và dịch vụ khác liên quan đến máy vi tính</li>
-	<li>M7310. Quảng cáo</li>
-	<li>J6202. Tư vấn máy vi tính và quản trị hệ thống máy vi tính</li>
-	<li>J6311. Xử lý dữ liệu, cho thuê và các hoạt động liên quan</li>
+    <!-- 3. HỒ SƠ NĂNG LỰC -->
+    <div class="card fade-in" style="animation-delay: 0.3s;">
+        <div class="card-title">
+            <i data-lucide="briefcase"></i> HỒ SƠ NĂNG LỰC | BIZZON CREDENTIALS
+        </div>
+        <div class="doc-links">
+            <a href="https://drive.google.com/file/d/1aA6AexfQNIK86FC-A8MUWvzs4gOJb_tc/view?usp=sharing" target="_blank" class="btn-outline">
+                <i data-lucide="download"></i> Tải file
+            </a>
+            <a href="https://docs.google.com/presentation/d/e/2PACX-1vT_-f98c0ccuJovkKZyRdN7AGFjxceVpZZ9EURdOhQprOenv0ZO6zQC-MI0ZA_Kxg/pub?start=false&amp;loop=false&amp;delayms=3000&amp;slide=id.p1" target="_blank" class="btn-outline">
+                <i data-lucide="monitor-play"></i> Xem online
+            </a>
+        </div>
+    </div>
 
+    <!-- 4. NGÀNH NGHỀ KINH DOANH -->
+    <div class="card fade-in" style="animation-delay: 0.4s;">
+        <div class="card-title">
+            <i data-lucide="layout-grid"></i> NGÀNH NGHỀ KINH DOANH
+        </div>
+        <ul class="industry-list">
+            <li class="industry-item">
+                <i data-lucide="check-circle-2" style="width: 20px; height: 20px;"></i>
+                <strong>J6201</strong> Lập trình máy vi tính (ngành chính)
+            </li>
+            <li class="industry-item">
+                <i data-lucide="check-circle-2" style="width: 20px; height: 20px;"></i>
+                <strong>J5820</strong> Xuất bản phần mềm
+            </li>
+            <li class="industry-item">
+                <i data-lucide="check-circle-2" style="width: 20px; height: 20px;"></i>
+                <strong>J6209</strong> Hoạt động dịch vụ công nghệ thông tin và dịch vụ khác liên quan đến máy vi tính
+            </li>
+            <li class="industry-item">
+                <i data-lucide="check-circle-2" style="width: 20px; height: 20px;"></i>
+                <strong>M7310</strong> Quảng cáo
+            </li>
+            <li class="industry-item">
+                <i data-lucide="check-circle-2" style="width: 20px; height: 20px;"></i>
+                <strong>J6202</strong> Tư vấn máy vi tính và quản trị hệ thống máy vi tính
+            </li>
+            <li class="industry-item">
+                <i data-lucide="check-circle-2" style="width: 20px; height: 20px;"></i>
+                <strong>J6311</strong> Xử lý dữ liệu, cho thuê và các hoạt động liên quan
+            </li>
+        </ul>
+    </div>
 
-	
-</ul>
-
-<p><span style="font-family:Tahoma,Geneva,sans-serif"><strong>5/ ENGLISH INFORMATION</strong></span></p>
-
-<ul>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Business name: <span class="copy-container">BIZZON ONLINE SOLUTION COMPANY LIMITED<a href="#" class="copy-text" onclick="copyToClipboardText('BIZZON ONLINE SOLUTION COMPANY LIMITED', event)">copy</a></span></span></li>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Address: <span class="copy-container">5th Floor, Song Do Building, 62A Pham Ngoc Thach, Xuan Hoa ward, Ho Chi Minh city<a href="#" class="copy-text" onclick="copyToClipboardText('5th Floor, Song Do Building, 62A Pham Ngoc Thach, Xuan Hoa ward, Ho Chi Minh city', event)">copy</a></span></span></li>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Tax code: <span class="copy-container">0315 325 403<a href="#" class="copy-text" onclick="copyToClipboardText('0315325403', event)">copy</a></span></span></li>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Email: <span class="copy-container">info@bizzon.vn<a href="#" class="copy-text" onclick="copyToClipboardText('info@bizzon.vn', event)">copy</a></span></span></li>
-	<li><span style="font-family:Tahoma,Geneva,sans-serif">Website: <a href="https://www.bizzon.vn" target="_blank">www.bizzon.vn</a></span></li>
-</ul>
+    <!-- 5. ENGLISH INFORMATION -->
+    <div class="card fade-in" style="animation-delay: 0.5s;">
+        <div class="card-title">
+            <i data-lucide="globe"></i> ENGLISH INFORMATION
+        </div>
+        <ul class="info-list">
+            <li class="info-item">
+                <div class="info-label">Business name</div>
+                <div class="info-value">
+                    <span>BIZZON ONLINE SOLUTION COMPANY LIMITED</span>
+                    <button class="copy-btn" onclick="copyToClipboardText('BIZZON ONLINE SOLUTION COMPANY LIMITED', this)">
+                        <i data-lucide="copy" style="width: 16px; height: 16px;"></i>
+                    </button>
+                </div>
+            </li>
+            <li class="info-item">
+                <div class="info-label">Tax code</div>
+                <div class="info-value">
+                    <span>0315 325 403</span>
+                    <button class="copy-btn" onclick="copyToClipboardText('0315325403', this)">
+                        <i data-lucide="copy" style="width: 16px; height: 16px;"></i>
+                    </button>
+                </div>
+            </li>
+            <li class="info-item">
+                <div class="info-label">Address</div>
+                <div class="info-value">
+                    <span>5th Floor, Song Do Building, 62A Pham Ngoc Thach, Xuan Hoa ward, Ho Chi Minh city</span>
+                    <button class="copy-btn" onclick="copyToClipboardText('5th Floor, Song Do Building, 62A Pham Ngoc Thach, Xuan Hoa ward, Ho Chi Minh city', this)">
+                        <i data-lucide="copy" style="width: 16px; height: 16px;"></i>
+                    </button>
+                </div>
+            </li>
+            <li class="info-item">
+                <div class="info-label">Email</div>
+                <div class="info-value">
+                    <span>info@bizzon.vn</span>
+                    <button class="copy-btn" onclick="copyToClipboardText('info@bizzon.vn', this)">
+                        <i data-lucide="copy" style="width: 16px; height: 16px;"></i>
+                    </button>
+                </div>
+            </li>
+            <li class="info-item">
+                <div class="info-label">Website</div>
+                <div class="info-value">
+                    <a href="https://www.bizzon.vn" target="_blank">www.bizzon.vn</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
 
 <script>
-function copyToClipboardText(text, event) {
-  event.preventDefault();
-  navigator.clipboard.writeText(text).then(() => {
-    const link = event.target;
-    const originalText = link.textContent;
-    link.textContent = 'copied!';
-    link.style.color = '#28a745';
-    setTimeout(() => {
-      link.textContent = originalText;
-      link.style.color = '#666';
-    }, 2000);
-  });
-}
+    // Initialize Lucide icons
+    lucide.createIcons();
 
-function revealPhoneNumber(element, event) {
-  event.preventDefault();
-  const container = element.parentElement;
-  const originalText = container.textContent;
-  container.textContent = '0986 590 660 (Trương Quốc Hùng)';
-  element.style.display = 'none';
-}
+    function copyToClipboardText(text, buttonElement) {
+        navigator.clipboard.writeText(text).then(() => {
+            const originalHTML = buttonElement.innerHTML;
+            buttonElement.innerHTML = '<i data-lucide="check" style="width: 16px; height: 16px;"></i>';
+            buttonElement.classList.add('copied');
+            
+            // Re-render the specific new icon
+            lucide.createIcons();
+            
+            setTimeout(() => {
+                buttonElement.innerHTML = originalHTML;
+                buttonElement.classList.remove('copied');
+                lucide.createIcons();
+            }, 2000);
+        });
+    }
+
+    function revealPhoneNumber(buttonElement, fullNumber, personName = "") {
+        const container = buttonElement.parentElement;
+        const phoneSpan = container.querySelector('span');
+        
+        // Hide button, update text with link
+        buttonElement.style.display = 'none';
+        
+        const cleanNum = fullNumber.replace(/\s/g, '');
+        const namePart = personName ? ` (${personName})` : '';
+        phoneSpan.innerHTML = `<a href="tel:${cleanNum}" style="font-size: 1rem; color: var(--primary);">${fullNumber}</a>${namePart}`;
+    }
 </script>
 
 </body>
